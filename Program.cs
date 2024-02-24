@@ -1,6 +1,4 @@
-﻿using System.Runtime.InteropServices.Marshalling;
-
-Console.Clear();
+﻿Console.Clear();
 Console.Write("Введите желаемое количество элементов Вашего массива:");
 Console.WriteLine();
 int indexAmount = Convert.ToInt32(Console.ReadLine());
@@ -28,13 +26,13 @@ void CheckStrings(string[] strings)
             count++;
             indexOfString++;
         }
-        if(count <= 3)
+        if (count <= 3)
         {
             Console.WriteLine(strings[i]);
             countOfOk++;
         }
     }
-    if(countOfOk == 0)
+    if (countOfOk == 0)
         Console.WriteLine("Нет подходящих значений");
 }
 
