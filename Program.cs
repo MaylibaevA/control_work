@@ -12,28 +12,46 @@ while (indexAmount > index)
     index++;
 }
 
-void CheckStrings(string[] strings)
+string [] ChechString (string [] strings)
 {
-    int indexOfString = 0;
-    int count = 0;
+    string [] stringwithemptiness = new string [strings.Length];
     int countOfOk = 0;
-    for (int i = 0; i < strings.Length; i++)
+    for(int i = 0; i < strings.Length; i++)
     {
-        count = 0;
-        indexOfString = 0;
+        int count = 0;
+        int indexOfString = 0;
         while (indexOfString < strings[i].Length)
         {
             count++;
             indexOfString++;
         }
-        if (count <= 3)
+        if(count <= 3)
         {
-            Console.WriteLine(strings[i]);
+            stringwithemptiness[i] = strings[i];
             countOfOk++;
         }
     }
-    if (countOfOk == 0)
-        Console.WriteLine("Нет подходящих значений");
+    string [] normalstring = new string [countOfOk];
+    int b = 0;
+    for(int i = 0; i < stringwithemptiness.Length; i++)
+    {
+        if (stringwithemptiness[i] != null)
+        {
+            normalstring[b] = stringwithemptiness[i];
+            b++;
+        }
+    }
+    return normalstring;
 }
 
-CheckStrings(strings);
+void ShowArray (string [] strings)
+{
+    for (int i = 0; i < strings.Length; i++)
+    {
+        Console.Write(strings[i]);
+        if (i < strings.Length - 1)
+            Console.Write(", ");
+    }
+}
+
+ShowArray(ChechString(strings));
